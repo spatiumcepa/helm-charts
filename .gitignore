@@ -1,0 +1,40 @@
+# Chart dependencies
+**/charts/*.tgz
+
+# Chart packaging
+packaged-charts/
+
+# Build / Runtime artifacts
+*.pyc
+*.log
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+build/
+dist/
+doc/build/
+logs/*
+
+# Editor / Project files
+*.orig
+.project
+*.sw*
+*.tmproj
+.idea/
+.vscode/
+.DS_Store
+*~
+
+# Packages / Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip

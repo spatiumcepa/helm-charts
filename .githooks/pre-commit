@@ -1,0 +1,13 @@
+#!/bin/bash
+set -ueo pipefail
+
+THIS_DIR=$(dirname "${BASH_SOURCE[0]}")
+
+echo "[pre-commit] Generate docs"
+docker run --rm -v "$(pwd):/helm-docs" -u $(id -u) jnorwood/helm-docs:v1.5.0 -- -s "file"
+
+echo "[pre-commit] Update README"
+bash ${THIS_DIR}/../tools/update-readme.sh
+
+echo "[pre-commit] Report README changes"
+git status --porcelain=v1 stable/**/README.md README.md

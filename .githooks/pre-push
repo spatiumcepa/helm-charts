@@ -1,0 +1,12 @@
+#!/bin/bash
+set -ueo pipefail
+
+THIS_DIR=$(dirname "${BASH_SOURCE[0]}")
+
+echo "[pre-push] Checking for README changes"
+if git status --porcelain=v1 stable/**/README.md README.md | grep '^\s\|MM'; then
+  exit 1
+fi
+
+echo "[pre-push] Checking for chart version changes"
+bash ${THIS_DIR}/../tools/version-check.sh
